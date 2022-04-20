@@ -12,26 +12,32 @@
             <fieldset class="form-group">
               <input
                 type="text"
+                [ngClass]="{'has-error': form.get('username').errors?.['serverError']}"
                 class="form-control form-control-lg"
                 placeholder="Username"
                 formControlName="username"
               />
+              <span *ngIf="form.get('username').errors?.['serverError']" class="error">{{ form.get('username').errors?.['serverError']}}</span>
             </fieldset>
             <fieldset class="form-group">
               <input
                 type="text"
                 class="form-control form-control-lg"
+                [ngClass]="{'has-error': form.get('email').errors?.['serverError']}"
                 placeholder="Email"
                 formControlName="email"
               />
+              <span *ngIf="form.get('email').errors?.['serverError']" class="error">{{ form.get('email').errors?.['serverError']}}</span>
             </fieldset>
             <fieldset class="form-group">
               <input
                 type="password"
                 class="form-control form-control-lg"
+                [ngClass]="{'has-error': form.get('password').errors?.['serverError']}"
                 placeholder="Password"
                 formControlName="password"
               />
+              <span *ngIf="form.get('password').errors?.['serverError']" class="error">{{ form.get('password').errors?.['serverError']}}</span>
             </fieldset>
             <button
               class="btn btn-lg btn-primary pull-xs-right"
