@@ -4,19 +4,25 @@ import { StoreModule } from '@ngrx/store'
 import { RouterModule } from '@angular/router'
 import { ReactiveFormsModule } from '@angular/forms'
 import { EffectsModule } from '@ngrx/effects'
+
 import { RegisterComponent } from 'src/app/auth/components/register/register.component'
-
+import { LoginComponent } from 'src/app/auth/components/login/login.component'
 import { reducers } from 'src/app/auth/store/reducers'
+import { PersistentService } from 'src/app/shared/services/persistent.service'
 import { AuthService } from './services/auth.service'
-
 import { RegisterEffect } from './store/effects/register.effect'
-import { PersistentService } from '../shared/services/persistent.service'
+import {LoginEffect} from "./store/effects/login.effect";
+
 
 const routes = [
   {
     path: 'register',
     component: RegisterComponent,
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ]
 
 @NgModule({
@@ -25,9 +31,9 @@ const routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
   ],
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent, LoginComponent],
   providers: [AuthService, PersistentService],
 })
 export class AuthModule {}
