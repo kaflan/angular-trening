@@ -54,17 +54,14 @@ export class LoginComponent implements OnInit {
     this.validationErrors$.subscribe(
       (validationErr: BackendErrorsInterface | null) => {
         if (validationErr) {
-          Object.keys(validationErr).forEach((propKey) => {
-            const formControl = this.form.get(propKey)
-            if (formControl) {
-              formControl.setErrors({
-                serverError: validationErr[propKey],
-              })
-            }
+          this.form.get('email').setErrors({
+            serverError: validationErr['emailOrPassword']
+          })
+          this.form.get('password').setErrors({
+            serverError: validationErr['emailOrPassword']
           })
         }
       }
     )
-    console.log(this.form.get('email').errors)
   }
 }

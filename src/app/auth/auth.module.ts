@@ -11,8 +11,7 @@ import { reducers } from 'src/app/auth/store/reducers'
 import { PersistentService } from 'src/app/shared/services/persistent.service'
 import { AuthService } from './services/auth.service'
 import { RegisterEffect } from './store/effects/register.effect'
-import {LoginEffect} from "./store/effects/login.effect";
-
+import { LoginEffect } from './store/effects/login.effect'
 
 const routes = [
   {
@@ -21,8 +20,8 @@ const routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
-  }
+    component: LoginComponent,
+  },
 ]
 
 @NgModule({
