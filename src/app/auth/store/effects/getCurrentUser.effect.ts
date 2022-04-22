@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { createEffect, Actions, ofType } from '@ngrx/effects'
-import { HttpErrorResponse } from '@angular/common/http'
 import { catchError, map, of, switchMap } from 'rxjs'
 
 import { AuthService } from 'src/app/auth/services/auth.service'
