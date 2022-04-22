@@ -5,12 +5,28 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/']"> Home </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']"> Sign in </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/register']"> Sign Up </a>
-      </li>
+      <ng-container *ngIf="isAnonymous$ | async">
+        <a class="nav-link" [routerLink]="['/articles/new']">
+          <i class="ion-compose"></i>
+          &nbsp; New Post
+        </a>
+        <a class="nav-link" [routerLink]="['/settings']">
+          <i class="ion-gear-a"></i>
+          &nbsp; Settings
+        </a>
+        <a class="nav-link" [routerLink]="['/profiles', (currentUser$ | async).username]">
+          <img [src]="(currentUser$ | async).image" alt="" class="user-pic" />
+          &nbsp; {{(currentUser$ | async).username}}
+        </a>
+      </ng-container>
+      <ng-container *ngIf="isAnonymous$|async">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']"> Sign in </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']"> Sign Up </a>
+        </li>
+      </ng-container>
     </ul>
   </div>
 </nav>
