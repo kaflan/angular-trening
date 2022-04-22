@@ -12,6 +12,7 @@ import { PersistentService } from 'src/app/shared/services/persistent.service'
 import { AuthService } from './services/auth.service'
 import { RegisterEffect } from './store/effects/register.effect'
 import { LoginEffect } from './store/effects/login.effect'
+import {GetCurrentUserEffect} from "./store/effects/getCurrentUser.effect";
 
 const routes = [
   {
@@ -30,7 +31,7 @@ const routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
   ],
   declarations: [RegisterComponent, LoginComponent],
   providers: [AuthService, PersistentService],

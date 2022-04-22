@@ -35,3 +35,15 @@ export const loginFailureAction = createAction(
   ActionTypes.LOG_IN_FAILURE,
   props<{ errors: BackendErrorsInterface }>()
 )
+
+
+export const getCurrentUserAction = createAction(
+  ActionTypes.GET_CURRENT_USER
+)
+export const getCurrentUserSuccessAction = createAction(
+  ActionTypes.GET_CURRENT_USER_SUCCESS,
+  props<{ currentUser: CurrentUserInterface }>()
+)
+export const getCurrentUserFailureAction = createAction(
+  ActionTypes.GET_CURRENT_USER_FAILURE,
+)
