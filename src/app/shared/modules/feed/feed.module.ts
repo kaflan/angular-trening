@@ -4,25 +4,24 @@ import {EffectsModule} from "@ngrx/effects";
 import {StoreModule} from "@ngrx/store";
 import {RouterModule} from "@angular/router";
 
+import {reducers} from "./store/reducers";
 import {FeedComponent} from "./components/feed.component";
 import {GetFeedEffect} from "./store/effects/getFeed.effect";
-
-import {reducers} from "./store/reducers";
 import {FeedService} from "src/app/shared/services/feed.service";
+import {BannerModule} from "src/app/shared/modules/banner/banner.module";
 
 
 
 @NgModule({
-  declarations: [
-    FeedComponent,
-  ],
+  declarations: [FeedComponent],
   imports: [
     CommonModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed', reducers),
     RouterModule,
+    BannerModule
   ],
-   exports: [ FeedComponent ],
+   exports: [FeedComponent],
   providers: [FeedService]
 })
 export class FeedModule { }
