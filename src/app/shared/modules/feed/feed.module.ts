@@ -9,7 +9,8 @@ import {FeedComponent} from "./components/feed.component";
 import {GetFeedEffect} from "./store/effects/getFeed.effect";
 import {FeedService} from "src/app/shared/services/feed.service";
 import {BannerModule} from "src/app/shared/modules/banner/banner.module";
-
+import {ErrorMessageModule} from 'src/app/shared/modules/errorMessage/errorMessage.module'
+import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
 
 
 @NgModule({
@@ -19,9 +20,11 @@ import {BannerModule} from "src/app/shared/modules/banner/banner.module";
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed', reducers),
     RouterModule,
-    BannerModule
+    BannerModule,
+    ErrorMessageModule,
+    LoadingModule
   ],
-   exports: [FeedComponent],
+  exports: [FeedComponent],
   providers: [FeedService]
 })
 export class FeedModule { }

@@ -14,7 +14,6 @@ import {PersistentService} from "./shared/services/persistent.service";
 import {AuthInterceptor} from "./shared/services/authinterceptor.service";
 import {GlobalFeedModule} from "./globalFeed/globalFeed.module";
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
