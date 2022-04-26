@@ -12,20 +12,22 @@ import {BannerModule} from "src/app/shared/modules/banner/banner.module";
 import {ErrorMessageModule} from 'src/app/shared/modules/errorMessage/errorMessage.module'
 import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
 import {McPaginationModule} from "src/app/shared/modules/mc-pagination/mc-pagination.module";
+import {McTagListModule} from "src/app/shared/modules/mc-taglist/mc-tag-list.module";
 
 
 @NgModule({
   declarations: [FeedComponent],
-    imports: [
-        CommonModule,
-        EffectsModule.forFeature([GetFeedEffect]),
-        StoreModule.forFeature('feed', reducers),
-        RouterModule,
-        BannerModule,
-        ErrorMessageModule,
-        LoadingModule,
-        McPaginationModule
-    ],
+  imports: [
+    CommonModule,
+    EffectsModule.forFeature([GetFeedEffect]),
+    StoreModule.forFeature('feed', reducers),
+    RouterModule,
+    BannerModule,
+    ErrorMessageModule,
+    LoadingModule,
+    McPaginationModule,
+    McTagListModule
+  ],
   exports: [FeedComponent],
   providers: [FeedService]
 })

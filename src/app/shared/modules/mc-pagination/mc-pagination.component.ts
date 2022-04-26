@@ -20,7 +20,6 @@ export class McPaginationComponent implements OnInit {
   ngOnInit(): void {
     this.pagesCount = Math.ceil(this.totalProps/ this.limitProps)
     this.pages = this.utilsService.range(1, this.pagesCount)
-    console.log('pages', this.pages)
   }
 
 }

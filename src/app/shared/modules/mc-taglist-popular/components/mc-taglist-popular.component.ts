@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './mc-taglist-popular.component.html',
   styleUrls: ['./mc-taglist-popular.component.scss']
 })
-export class McTaglistPopularComponent implements OnInit {
+export class McTagListPopularComponent implements OnInit {
 
   constructor() { }
 

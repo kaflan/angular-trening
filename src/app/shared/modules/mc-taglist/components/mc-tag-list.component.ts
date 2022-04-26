@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mc-tag-list',
@@ -9,7 +9,11 @@ export class McTagListComponent implements OnInit {
 
   constructor() { }
 
+  @Input('tags') tagsProps: string[]
+
+
   ngOnInit(): void {
+    console.log(this.tagsProps)
   }
 
 }
