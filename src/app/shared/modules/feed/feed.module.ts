@@ -11,7 +11,7 @@ import {FeedService} from "src/app/shared/services/feed.service";
 import {BannerModule} from "src/app/shared/modules/banner/banner.module";
 import {ErrorMessageModule} from 'src/app/shared/modules/errorMessage/errorMessage.module'
 import {LoadingModule} from 'src/app/shared/modules/loading/loading.module'
-import {McPaginationModule} from "../../../mc-pagination/mc-pagination.module";
+import {McPaginationModule} from "src/app/shared/modules/mc-pagination/mc-pagination.module";
 
 
 @NgModule({

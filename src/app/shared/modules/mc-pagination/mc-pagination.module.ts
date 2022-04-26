@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { McPaginationComponent } from './mc-pagination.component';
-import {UtilService} from "../shared/services/util.service";
+import {UtilService} from "../../services/util.service";
 import {RouterModule} from "@angular/router";
 
 
