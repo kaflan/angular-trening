@@ -2,9 +2,13 @@ import { Injectable } from '@angular/core'
 import { createEffect, Actions, ofType } from '@ngrx/effects'
 import { catchError, map, of, switchMap } from 'rxjs'
 
-import {FeedService} from "../../../../services/feed.service";
-import {getFeedAction, getFeedFailureAction, getFeedSuccessAction} from "../actions";
-import {GetFeedResponseInterface} from "../../types/getFeedResponse.interface";
+import { FeedService } from 'src/app/shared/services/feed.service'
+import {
+  getFeedAction,
+  getFeedFailureAction,
+  getFeedSuccessAction,
+} from 'src/app/shared/modules/feed/store/actions'
+import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
 
 @Injectable()
 export class GetFeedEffect {
@@ -14,7 +18,7 @@ export class GetFeedEffect {
       switchMap(({ url }) => {
         return this.feedService.getFeed(url).pipe(
           map((feed: GetFeedResponseInterface) => {
-            return getFeedSuccessAction({feed})
+            return getFeedSuccessAction({ feed })
           }),
           catchError(() => {
             return of(getFeedFailureAction())
@@ -24,8 +28,5 @@ export class GetFeedEffect {
     )
   )
 
-  constructor(
-    private actions$: Actions,
-    private feedService: FeedService,
-  ) {}
+  constructor(private actions$: Actions, private feedService: FeedService) {}
 }
