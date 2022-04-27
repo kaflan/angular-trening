@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { McTagListPopularComponent } from './components/mc-taglist-popular.component';
+import { PopularTagsComponent } from './components/mc-taglist-popular.component';
 import { reducers } from './store/reducers';
 import { GetPopularTagsEffect } from './store/effects/getPopularTags';
 
@@ -11,7 +11,7 @@ import { GetPopularTagsEffect } from './store/effects/getPopularTags';
 
 @NgModule({
   declarations: [
-    McTagListPopularComponent
+    PopularTagsComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +20,6 @@ import { GetPopularTagsEffect } from './store/effects/getPopularTags';
       GetPopularTagsEffect
     ])
   ],
-  exports: [McTagListPopularComponent]
+  exports: [PopularTagsComponent]
 })
 export class McTagListPopularModule { }
