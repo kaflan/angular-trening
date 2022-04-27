@@ -10,12 +10,12 @@ export const popularTagsSelector = createSelector(
   (popularTagState: PopularTagsState) => popularTagState.data
 )
 
-export const popularTagsIsLoadingSelector = createSelector(
+export const isLoadingSelector = createSelector(
   popularTagsFeatureSelector,
   (popularTagState: PopularTagsState) => popularTagState.isLoading
 )
 
-export const popularTagsErrSelector = createSelector(
+export const errorSelector = createSelector(
   popularTagsFeatureSelector,
   (popularTagState: PopularTagsState) => popularTagState.error
 )
