@@ -6,7 +6,6 @@
 ></mc-error-message>
 
 <div class="sidebar" *ngIf="popularTags$ | async">
-  <p>Popular Tags</p>
   <div class="tag-list">
     <a
       *ngFor="let popularTag of popularTags$ | async"

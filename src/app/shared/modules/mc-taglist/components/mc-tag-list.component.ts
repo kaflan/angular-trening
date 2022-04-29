@@ -13,7 +13,6 @@ export class McTagListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.tagsProps)
   }
 
 }
