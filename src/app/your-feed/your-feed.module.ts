@@ -6,6 +6,7 @@ import { YourFeedComponent } from './components/your-feed.component'
 import { FeedModule } from '../shared/modules/feed/feed.module'
 import { McTagListPopularModule } from '../shared/modules/mc-taglist-popular/mc-taglist-popular.module'
 import { FeedTogglerModule } from '../feed-toggler/feed-toggler.module'
+import {BannerModule} from "../shared/modules/banner/banner.module";
 
 const routes = [
   {
@@ -22,6 +23,7 @@ const routes = [
     FeedModule,
     McTagListPopularModule,
     FeedTogglerModule,
+    BannerModule,
   ],
 })
 export class YourFeedModule {}
