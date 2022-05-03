@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FeedTogglerComponent} from "./feed-toggler.component";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -9,7 +10,8 @@ import {FeedTogglerComponent} from "./feed-toggler.component";
     FeedTogglerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [ FeedTogglerComponent ]
 })
