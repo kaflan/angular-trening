@@ -1,15 +1,27 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { YourFeedComponent } from './your-feed.component';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
 
+import { YourFeedComponent } from './components/your-feed.component'
+import { FeedModule } from '../shared/modules/feed/feed.module'
+import { McTagListPopularModule } from '../shared/modules/mc-taglist-popular/mc-taglist-popular.module'
+import { FeedTogglerModule } from '../feed-toggler/feed-toggler.module'
 
+const routes = [
+  {
+    path: 'feed',
+    component: YourFeedComponent,
+  },
+]
 
 @NgModule({
-  declarations: [
-    YourFeedComponent
-  ],
+  declarations: [YourFeedComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterModule.forChild(routes),
+    FeedModule,
+    McTagListPopularModule,
+    FeedTogglerModule,
+  ],
 })
-export class YourFeedModule { }
+export class YourFeedModule {}
