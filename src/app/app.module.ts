@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { EffectsModule } from '@ngrx/effects'
+import {routerReducer, StoreRouterConnectingModule} from "@ngrx/router-store";
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -13,7 +14,7 @@ import { TopBarModule } from './shared/modules/topBar/topBar.module'
 import {PersistentService} from "./shared/services/persistent.service";
 import {AuthInterceptor} from "./shared/services/authinterceptor.service";
 import {GlobalFeedModule} from "./globalFeed/globalFeed.module";
-import {routerReducer, StoreRouterConnectingModule} from "@ngrx/router-store";
+
 
 @NgModule({
   declarations: [AppComponent],
