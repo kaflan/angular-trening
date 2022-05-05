@@ -7,7 +7,7 @@ import { FeedModule } from 'src/app/shared/modules/feed/feed.module'
 import { BannerModule } from 'src/app/shared/modules/banner/banner.module'
 import { McTagListModule } from 'src/app/shared/modules/mc-taglist/mc-tag-list.module'
 import { McTagListPopularModule } from 'src/app/shared/modules/mc-taglist-popular/mc-taglist-popular.module'
-import {FeedTogglerModule} from "../feed-toggler/feed-toggler.module";
+import { FeedTogglerModule } from 'src/app/feed-toggler/feed-toggler.module'
 
 const routes = [
   {
