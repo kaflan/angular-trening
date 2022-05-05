@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FeedTogglerComponent} from "./feed-toggler.component";
+import {FeedTogglerComponent} from "./components/feed-toggler.component";
 import {RouterModule} from "@angular/router";
 
 

@@ -14,10 +14,11 @@ import { TopBarModule } from './shared/modules/topBar/topBar.module'
 import { PersistentService } from './shared/services/persistent.service'
 import { AuthInterceptor } from './shared/services/authinterceptor.service'
 import { GlobalFeedModule } from './globalFeed/globalFeed.module'
-import { YourFeedModule } from './your-feed/your-feed.module'
+import { YourFeedModule } from './your-feed/your-feed.module';
+import { TagFeedComponent } from './tag-feed/tag-feed.component'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TagFeedComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
