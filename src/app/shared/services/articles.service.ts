@@ -9,7 +9,7 @@ import { GetArticleResponseInterface } from 'src/app/shared/types/getArticleResp
 export class ArticlesService {
   constructor(private http: HttpClient) {}
 
-  getFeed(url: string): Observable<GetArticleResponseInterface> {
-    return this.http.get<GetArticleResponseInterface>(`${environment.apiUrl}${url}`)
+  getFeed(slug: string): Observable<GetArticleResponseInterface> {
+    return this.http.get<GetArticleResponseInterface>(`${environment.apiUrl}/articles/${slug}`)
   }
 }
