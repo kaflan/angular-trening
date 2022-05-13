@@ -15,7 +15,7 @@ const initialState: GetArticleStateInterface = {
   error: null,
 }
 
-const feedReducer = createReducer(
+const articleReducer = createReducer(
   initialState,
   on(
     getArticleAction,
@@ -43,5 +43,5 @@ const feedReducer = createReducer(
 )
 
 export function reducers(state: GetArticleStateInterface, action: Action) {
-  return feedReducer(state, action)
+  return articleReducer(state, action)
 }

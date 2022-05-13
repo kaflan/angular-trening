@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { GetArticleStateInterface } from '../types/getArticleState.interface'
+import { GetArticleStateInterface } from 'src/app/article/types/getArticleState.interface'
 
 export const articleFeatureSelector =
   createFeatureSelector<GetArticleStateInterface>('article')

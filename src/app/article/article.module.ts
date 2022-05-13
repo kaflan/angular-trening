@@ -4,12 +4,12 @@ import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { reducers } from './store/reducers';
-import { GetArticleEffect } from './store/effects/articles.effect';
 import { ErrorMessageModule } from 'src/app/shared/modules/errorMessage/errorMessage.module';
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module';
 import { ArticlesService } from 'src/app/shared/services/articles.service';
 import { ArticleComponent } from './components/article.component';
+import { reducers } from './store/reducers';
+import { GetArticleEffect } from './store/effects/articles.effect';
 
 const routes = [
   {
