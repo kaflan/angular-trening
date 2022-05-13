@@ -1,1 +1,23 @@
-<p>article works!</p>
+<div class="article">
+  <div class="banner">
+    <div class="container" *ngIf="article">
+      <h1>{{ article.title }}</h1>
+      <div class="article-meta">
+        <a [routerLink]="['/profiles', article.author.username]">
+          <img [src]="article.author.image" alt="" />
+        </a>
+        <div class="info">
+          <a [routerLink]="['/profiles', article.author.username]">
+            {{ article.author.username }}
+          </a>
+          <span class="date">
+              {{ article.createdAd }}
+          </span>
+        </div>
+        <span *ngIf="isAuthor$ | async">
+
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
