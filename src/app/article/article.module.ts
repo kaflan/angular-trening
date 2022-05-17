@@ -10,6 +10,7 @@ import { ArticlesService } from 'src/app/shared/services/articles.service';
 import { ArticleComponent } from './components/article.component';
 import { reducers } from './store/reducers';
 import { GetArticleEffect } from './store/effects/articles.effect';
+import {McTagListModule} from "../shared/modules/mc-taglist/mc-tag-list.module";
 
 const routes = [
   {
@@ -22,14 +23,15 @@ const routes = [
   declarations: [
     ArticleComponent
   ],
-  imports: [
-    CommonModule,
-    EffectsModule.forFeature([GetArticleEffect]),
-    StoreModule.forFeature('article', reducers),
-    RouterModule.forChild(routes),
-    ErrorMessageModule,
-    LoadingModule
-  ],
+    imports: [
+        CommonModule,
+        EffectsModule.forFeature([GetArticleEffect]),
+        StoreModule.forFeature('article', reducers),
+        RouterModule.forChild(routes),
+        ErrorMessageModule,
+        LoadingModule,
+        McTagListModule
+    ],
   providers: [ArticlesService]
 })
 export class ArticleModule { }

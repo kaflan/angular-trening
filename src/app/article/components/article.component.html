@@ -15,9 +15,28 @@
           </span>
         </div>
         <span *ngIf="isAuthor$ | async">
+            <a [routerLink]="['/articles', article.slug, '/edit']" class="btn btn-outline-secondary btn-sm">
+            <i class="ion-edit">
 
+            </i>
+              Edit Article
+            </a>
+          DELEtE BUttON
         </span>
       </div>
     </div>
+  </div>
+  <div class="container page">
+    <mc-loading *ngIf="isLoading$ | async"></mc-loading>
+    <mc-error-message *ngIf="error$ | async"></mc-error-message>
+
+    <dic class="row article-content" *ngIf="article">
+      <div class="col-xs-12">
+        <div>
+          <p>{{ article.body }}</p>
+        </div>
+        <mc-tag-list [tags]="article.tagList"></mc-tag-list>
+      </div>
+    </dic>
   </div>
 </div>

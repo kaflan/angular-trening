@@ -21,7 +21,7 @@ import {
 export class ArticleComponent implements OnInit, OnDestroy {
   slug: string
   article: ArticleInterface | null
-  articleSubscribtion: Subscription
+  articleSubscription: Subscription
   isLoading$: Observable<boolean>
   error$: Observable<string | null>
   isAuthor$: Observable<boolean>
@@ -30,12 +30,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeValues()
-    this.initializeListeneres()
+    this.initializeListeners()
     this.fetchData()
   }
 
   ngOnDestroy(): void {
-    this.articleSubscribtion.unsubscribe()
+    this.articleSubscription.unsubscribe()
   }
 
   initializeValues(): void {
@@ -58,8 +58,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
     )
   }
 
-  initializeListeneres(): void {
-    this.articleSubscribtion = this.store
+  initializeListeners(): void {
+    this.articleSubscription = this.store
       .pipe(select(dataArticleSelector))
       .subscribe((article: ArticleInterface | null) => (this.article = article))
   }
