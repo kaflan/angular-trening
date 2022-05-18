@@ -11,7 +11,7 @@ import { ArticleInterface } from 'src/app/shared/types/article.interface'
 export class ArticlesService {
   constructor(private http: HttpClient) {}
 
-  getFeed(slug: string): Observable<ArticleInterface> {
+  getArticle(slug: string): Observable<ArticleInterface> {
     return this.http
       .get<GetArticleResponseInterface>(
         `${environment.apiUrl}/articles/${slug}`
@@ -21,5 +21,9 @@ export class ArticlesService {
           return response.article
         })
       )
+  }
+
+  deleteArticle(slug: string): Observable<{}> {
+     return this.http.delete<{}>(`${environment.apiUrl}/articles/${slug}`)
   }
 }

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { select, Store } from '@ngrx/store'
 import { combineLatest, Observable, Subscription, map } from 'rxjs'
 
-import { getArticleAction } from 'src/app/article/store/actions'
+import {deleteArticleAction, getArticleAction} from 'src/app/article/store/actions'
 import { currentUserSelector } from 'src/app/auth/store/selectors'
 import { ArticleInterface } from 'src/app/shared/types/article.interface'
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
@@ -70,5 +70,11 @@ export class ArticleComponent implements OnInit, OnDestroy {
         slug: this.slug,
       })
     )
+  }
+
+  deleteArticle(): void {
+      this.store.dispatch(deleteArticleAction({
+        slug: this.slug
+      }))
   }
 }
