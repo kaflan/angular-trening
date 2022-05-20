@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-create-article',
+  selector: 'mc-create-article',
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss']
 })
