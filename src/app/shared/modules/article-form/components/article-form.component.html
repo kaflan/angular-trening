@@ -8,35 +8,59 @@
               <input
                 type="text"
                 class="form-control form-control-lg"
+                [ngClass]="{'has-error': form.get('title').errors?.['serverError']}"
                 placeholder="Article title"
                 formControlName="title"
               />
+              <span
+                *ngIf="form.get('title').errors?.['serverError']"
+                class="error"
+                >{{ form.get('title').errors?.['serverError']}}</span
+              >
             </fieldset>
             <fieldset class="form-group">
               <input
                 type="text"
                 class="form-control form-control-lg"
+                [ngClass]="{'has-error': form.get('description').errors?.['serverError']}"
                 placeholder="What is this article about?"
                 formControlName="description"
               />
+              <span
+                *ngIf="form.get('description').errors?.['serverError']"
+                class="error"
+                >{{ form.get('description').errors?.['serverError']}}</span
+              >
             </fieldset>
             <fieldset class="form-group">
               <textarea
                 type="text"
                 class="form-control form-control-lg"
                 rows="8"
+                [ngClass]="{'has-error': form.get('body').errors?.['serverError']}"
                 placeholder="Write your article (in markdown)"
                 formControlName="body"
               >
               </textarea>
+              <span
+                *ngIf="form.get('body').errors?.['serverError']"
+                class="error"
+                >{{ form.get('body').errors?.['serverError']}}</span
+              >
             </fieldset>
             <fieldset class="form-group">
               <input
                 type="text"
                 class="form-control form-control-lg"
+                [ngClass]="{'has-error': form.get('tagList').errors?.['serverError']}"
                 placeholder="Enter tags"
                 formControlName="tagList"
               />
+              <span
+                *ngIf="form.get('tagList').errors?.['serverError']"
+                class="error"
+                >{{ form.get('tagList').errors?.['serverError']}}</span
+              >
             </fieldset>
             <fieldset>
               <button
