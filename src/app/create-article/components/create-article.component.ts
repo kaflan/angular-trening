@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { ArticlesService } from 'src/app/shared/services/articles.service'
 import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface'
 
 @Component({
@@ -14,7 +15,7 @@ export class CreateArticleComponent implements OnInit {
     tagList: ['123'],
   }
 
-  constructor() {}
+  constructor(private articleService: ArticlesService) {}
 
   ngOnInit(): void {}
 

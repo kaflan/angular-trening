@@ -6,4 +6,9 @@ export enum ActionTypes {
     DELETE_ARTICLE = '[ARTICLE] Delete article',
     DELETE_ARTICLE_SUCCESS = '[ARTICLE] Delete article success',
     DELETE_ARTICLE_FAILURE = '[ARTICLE] Delete article failure',
+
+    CREATE_ARTICLE = '[ARTICLE] Create article',
+    CREATE_ARTICLE_SUCCESS = '[ARTICLE] Create article success',
+    CREATE_ARTICLE_FAILURE = '[ARTICLE] Create article failure'
+
   }

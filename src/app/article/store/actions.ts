@@ -23,9 +23,24 @@ export const deleteArticleAction = createAction(
 )
 
 export const deleteArticleSuccessAction = createAction(
-  ActionTypes.DELETE_ARTICLE_SUCCESS,
+  ActionTypes.DELETE_ARTICLE_SUCCESS
 )
 
 export const deleteArticleFailureAction = createAction(
   ActionTypes.DELETE_ARTICLE_FAILURE
+)
+
+export const createArticle = createAction(
+  ActionTypes.CREATE_ARTICLE,
+  props<{ articleInput: ArticleInterface }>()
+)
+
+export const createArticleSuccess = createAction(
+  ActionTypes.CREATE_ARTICLE_SUCCESS,
+  props<{ article: ArticleInterface }>()
+)
+
+export const createArticleFailure = createAction(
+  ActionTypes.CREATE_ARTICLE_FAILURE,
+  props<{ errors: any }>()
 )
