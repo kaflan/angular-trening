@@ -5,14 +5,18 @@ import {
   getArticleAction,
   getArticleFailureAction,
   getArticleSuccessAction,
+  createArticle,
+  createArticleFailure,
+  createArticleSuccess,
 } from './actions'
 import { GetArticleStateInterface } from 'src/app/article/types/getArticleState.interface'
-
 
 const initialState: GetArticleStateInterface = {
   isLoading: false,
   data: null,
   error: null,
+  isSubmitting: false,
+  validationErrors: null,
 }
 
 const articleReducer = createReducer(
@@ -37,6 +41,28 @@ const articleReducer = createReducer(
     (state): GetArticleStateInterface => ({
       ...state,
       isLoading: false,
+    })
+  ),
+  on(
+    createArticle,
+    (state): GetArticleStateInterface => ({
+      ...state,
+      isSubmitting: true,
+    })
+  ),
+  on(
+    createArticleSuccess,
+    (state): GetArticleStateInterface => ({
+      ...state,
+      isSubmitting: false,
+    })
+  ),
+  on(
+    createArticleFailure,
+    (state, action): GetArticleStateInterface => ({
+      ...state,
+      isSubmitting: false,
+      validationErrors: action.errors,
     })
   ),
   on(routerNavigationAction, (): GetArticleStateInterface => initialState)
