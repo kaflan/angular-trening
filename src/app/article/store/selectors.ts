@@ -18,3 +18,14 @@ export const errorArticleSelector = createSelector(
   articleFeatureSelector,
   (articleState: GetArticleStateInterface) => articleState.error
 )
+
+
+export const validationArticleSelector = createSelector(
+  articleFeatureSelector,
+  (articleState: GetArticleStateInterface) => articleState.validationErrors
+)
+
+export const isSubmittingSelector = createSelector(
+  articleFeatureSelector,
+  (articleState: GetArticleStateInterface) => articleState.isSubmitting
+)

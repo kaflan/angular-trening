@@ -44,3 +44,19 @@ export const createArticleFailure = createAction(
   ActionTypes.CREATE_ARTICLE_FAILURE,
   props<{ errors: any }>()
 )
+
+
+export const editArticle = createAction(
+  ActionTypes.EDIT_ARTICLE,
+  props<{ slug: string, articleInput: ArticleInterface }>()
+)
+
+export const editArticleSuccess = createAction(
+  ActionTypes.EDIT_ARTICLE_SUCCESS,
+  props<{ article: ArticleInterface }>()
+)
+
+export const editArticleFailure = createAction(
+  ActionTypes.EDIT_ARTICLE_FAILURE,
+  props<{ errors: any }>()
+)
