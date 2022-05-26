@@ -10,6 +10,7 @@ import { ArticlesService } from 'src/app/shared/services/articles.service'
 import { ArticleEffect } from 'src/app/article/store/effects/articles.effect'
 
 import {reducers} from "src/app/article/store/reducers";
+import {LoadingModule} from "../shared/modules/loading/loading.module";
 
 const routes = [
   {
@@ -30,6 +31,7 @@ const routes = [
     ArticleFormModule,
     EffectsModule.forFeature([ArticleEffect]),
     StoreModule.forFeature('article', reducers),
+    LoadingModule,
   ],
   providers: [ArticlesService],
 })

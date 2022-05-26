@@ -1,7 +1,8 @@
-Create Article
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
 <mc-article-form
-  [initialValues]="initialValues"
-  [isSubmitting]="false"
+  [initialValues]="initialValues$ | async"
+  [isSubmitting]="isSubmitting$ | async"
+  [errors]="validationErrors$ | async"
   (articleSubmit)="onSubmit($event)"
 >
 </mc-article-form>
