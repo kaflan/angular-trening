@@ -1,19 +1,37 @@
 import { Component, OnInit } from '@angular/core'
 import { filter, map, Observable } from 'rxjs'
-import { select, Store } from '@ngrx/store'
+import { createSelector, select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
 
 import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface'
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
 import { AppStateInterface } from 'src/app/shared/types/appState.interface'
 import {
-  dataArticleSelector, isLoadingArticleSelector,
+  dataArticleSelector,
+  isLoadingArticleSelector,
   isSubmittingSelector,
   validationArticleSelector,
 } from 'src/app/article/store/selectors'
 import { createArticle, getArticleAction } from 'src/app/article/store/actions'
 import { ArticleInterface } from 'src/app/shared/types/article.interface'
 
+const createArticleVm = createSelector(
+  isSubmittingSelector,
+  dataArticleSelector,
+  validationArticleSelector,
+  isLoadingArticleSelector,
+  (
+    isSubmitting,
+    { title, description, body, tagList },
+    validation,
+    isLoading
+  ) => ({
+    isSubmitting,
+    initialValues: { title, description, body, tagList },
+    validation,
+    isLoading,
+  })
+)
 @Component({
   selector: 'mc-create-article',
   templateUrl: './create-article.component.html',
@@ -21,10 +39,11 @@ import { ArticleInterface } from 'src/app/shared/types/article.interface'
 })
 export class CreateArticleComponent implements OnInit {
   slug: string
-  isSubmitting$: Observable<boolean>
-  validationErrors$: Observable<BackendErrorsInterface | null>
-  initialValues$: Observable<ArticleInputInterface>
-  isLoading$: Observable<boolean>
+  readonly vm$ = this.store.select(createArticleVm)
+  // isSubmitting$: Observable<boolean>
+  // validationErrors$: Observable<BackendErrorsInterface | null>
+  // initialValues$: Observable<ArticleInputInterface>
+  // isLoading$: Observable<boolean>
 
   constructor(
     private store: Store<AppStateInterface>,
@@ -33,19 +52,19 @@ export class CreateArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeData()
-    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
-    this.validationErrors$ = this.store.pipe(select(validationArticleSelector))
-    this.initialValues$ = this.store.pipe(
-      select(dataArticleSelector),
-      filter(Boolean),
-      map((article: ArticleInputInterface) => ({
-        title: article.title,
-        description: article.description,
-        body: article.body,
-        tagList: article.tagList
-      }))
-    )
-    this.isLoading$ = this.store.pipe(select(isLoadingArticleSelector))
+    // this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
+    // this.validationErrors$ = this.store.pipe(select(validationArticleSelector))
+    // this.initialValues$ = this.store.pipe(
+    //   select(dataArticleSelector),
+    //   filter(Boolean),
+    //   map((article: ArticleInputInterface) => ({
+    //     title: article.title,
+    //     description: article.description,
+    //     body: article.body,
+    //     tagList: article.tagList,
+    //   }))
+    // )
+    // this.isLoading$ = this.store.pipe(select(isLoadingArticleSelector))
   }
 
   initializeData(): void {

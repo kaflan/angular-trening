@@ -34,9 +34,7 @@ export class LoginComponent implements OnInit {
 
   initValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingFutureSelector))
-    this.validationErrors$ = this.store.pipe(
-      select(validationErrorsFutureSelector)
-    )
+    this.validationErrors$ = this.store.select(validationErrorsFutureSelector)
   }
 
   initializeForm(): void {
@@ -55,10 +53,10 @@ export class LoginComponent implements OnInit {
       (validationErr: BackendErrorsInterface | null) => {
         if (validationErr) {
           this.form.get('email').setErrors({
-            serverError: validationErr['emailOrPassword']
+            serverError: validationErr['emailOrPassword'],
           })
           this.form.get('password').setErrors({
-            serverError: validationErr['emailOrPassword']
+            serverError: validationErr['emailOrPassword'],
           })
         }
       }
